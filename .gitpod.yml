@@ -1,20 +1,21 @@
 tasks:
-  - name: terraform
-    init: |
-      sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-      curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-      sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-      sudo apt-get update && sudo apt-get install terraform
-  - name: aws-cli
+  - name: tf_task
+    before: |
+      cd $GITPOD_REPO_ROOT
+      source ./bin/install_terraform_cli
+      source ./bin/generate_tfrc_credential
+      cp $GITPOD_REPO_ROOT/terraform.tfvars.example $GITPOD_REPO_ROOT/terraform.tfvars
+      gp sync-done tf_task
+  - name: aws_task
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
-    init: |
-      cd /workspace
-      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      unzip awscliv2.zip
-      sudo ./aws/install
-      cd $THEIA_WORKSPACE_ROOT
-vscode:
-  extensions:
-    - amazonwebservices.aws-toolkit-vscode
-    - hashicorp.terraform
+    before: |
+      cd $GITPOD_REPO_ROOT    
+      source ./bin/install_aws_cli
+      gp sync-done aws_task
+  - name: workspace
+    before:
+      gp sync-await tf_task 
+      gp sync-await aws_task     
+      source ./bin/set_tf_alias
+      source ~/.bash_profile
