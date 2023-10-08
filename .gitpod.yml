@@ -16,6 +16,6 @@ tasks:
   - name: workspace
     before:
       gp sync-await tf_task 
-      gp sync-await aws_task     
+    command: 
       source ./bin/set_tf_alias
       source ~/.bash_profile
