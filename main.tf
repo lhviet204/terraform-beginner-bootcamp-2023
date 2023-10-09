@@ -1,37 +1,23 @@
 terraform {
   required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.5.1"
+    terratowns = {
+      source = "local.providers/local/terratowns"
+      version = "1.0.0"
     }
-    aws = {
-      source = "hashicorp/aws"
-      version = "5.16.2"
+  }
+
+  cloud {
+    organization = "\\TODO"
+    workspaces {
+      name = "\\TODO"
     }
   }
 }
 
-provider "aws" {
-}
-provider "random" {
-  # Configuration options
-}
-
-# https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
-resource "random_string" "bucket_name" {
-  lower = true
-  upper = false
-  length   = 32
-  special  = false
+provider "terratowns" {
+  endpoint = var.terratowns_endpoint
+  user_uuid = var.teacherseat_user_uuid
+  token = var.terratowns_access_token
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
-resource "aws_s3_bucket" "example" {
-  # Bucket Naming Rules
-  #https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
-  bucket = random_string.bucket_name.result
-}
-
-output "random_bucket_name" {
-  value = random_string.bucket_name.result
-}
+#\\TODO for your own website
