@@ -7,9 +7,9 @@ terraform {
   }
 
   cloud {
-    organization = "\\TODO"
+    organization = "Yap365"
     workspaces {
-      name = "\\TODO"
+      name = "terrahome-yap365"
     }
   }
 }

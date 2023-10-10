@@ -15,28 +15,15 @@ data "aws_caller_identity" "current" {}
 main outside
 - main/outputs/variables > Find \\TODO to fix
 
+Done: org and workspace from terraformcloud
+Done: region, 
+Done: fix gitpod yml
+Done: go, and mode, build and fix terraformrc
 
-??
-terraformrc
-
-provider_installation {
-  filesystem_mirror {
-    path = "/home/gitpod/.terraform.d/plugins"
-    include ["local.providers/*/*"]
-  } 
-  direct {
-   exclude = ["local.providers/*/*"] 
-  }
-}
-
-
-Next:
-- local provider
-    - build the provider/ ensure the local env project_root is set instead of builtin of gitpod
-
-- prepare provider terratowns
-- go run main.go
-
+Next :::
+check variable from outter folder ; output, and main.
+prepare the bucket and policy conf
+prepare the html for the website
 
 Next02:
 prepare the static host website folder.

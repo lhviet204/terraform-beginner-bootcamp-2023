@@ -1,21 +1,23 @@
 tasks:
   - name: tf_task
     before: |
-      cd $GITPOD_REPO_ROOT
-      pwd
+      cd $PROJECT_ROOT
       source ./bin/install_terraform_cli
       source ./bin/generate_tfrc_credential
       cp $GITPOD_REPO_ROOT/terraform.tfvars.example $GITPOD_REPO_ROOT/terraform.tfvars
+      source ./bin/set_tf_alias
   - name: aws_task
     env:
       AWS_CLI_AUTO_PROMPT: on-partial
     before: |
-      cd $GITPOD_REPO_ROOT    
+      cd $PROJECT_ROOT   
       source ./bin/install_aws_cli
-      gp sync-done aws_task
-  - name: workspace
+  - name: http-server
     before: |
-      source ./bin/set_tf_alias
+      cd $PROJECT_ROOT
+      npm install --global http-server
+    command: 
+      http-server      
 vscode:
   extensions:
     - amazonwebservices.aws-toolkit-vscode
