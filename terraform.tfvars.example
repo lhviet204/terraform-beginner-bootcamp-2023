@@ -1,9 +1,13 @@
 terratowns_endpoint="https://terratowns.cloud/api"
-arcanum = {
-  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/arcanum"
-  content_version = 2 
+turnbased_rgp = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/rpgGame/"
+  content_version = 1
 }
-payday = {
-  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/payday"
-  content_version = 1 
+bucket_name = "value"
+teacherseat_user_uuid = "value"
+terratowns_access_token = "value"
+
+spindisc_bar = {
+  public_path = "/workspace/terraform-beginner-bootcamp-2023/public/spinDisc"
+  content_version = 1
 }

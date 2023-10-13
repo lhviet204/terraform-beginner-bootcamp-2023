@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Rock Salt', cursive;
+            color: #fff;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ff0000;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            animation: spin 4s linear infinite; 
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Error 404</h1>
+<div class="image-container">
+    <img src="assets/404.jpg" alt="Image">
+</div>
+<p>Looks like you hit a wrong note! The page you're looking for doesn't exist.</p>
+
+</body>
+</html>

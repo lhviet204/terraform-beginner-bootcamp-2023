@@ -12,6 +12,7 @@ tasks:
     before: |
       cd $PROJECT_ROOT   
       source ./bin/install_aws_cli
+      source ./bin/build_provider
   - name: http-server
     before: |
       cd $PROJECT_ROOT

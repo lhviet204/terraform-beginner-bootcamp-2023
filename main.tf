@@ -25,6 +25,7 @@ module "turnbased_rgp_home" {
   user_uuid = var.teacherseat_user_uuid
   public_path = var.turnbased_rgp.public_path
   content_version = var.turnbased_rgp.content_version
+  bucket_name = var.bucket_name
 }
 
 resource "terratowns_home" "home" {
@@ -35,4 +36,22 @@ DESCRIPTION
   domain_name = module.turnbased_rgp_home.domain_name
   town = "gamers-grotto"
   content_version = var.turnbased_rgp.content_version
+}
+
+module "spin_disc_bar" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.spindisc_bar.public_path
+  content_version = var.spindisc_bar.content_version
+  bucket_name = var.bucket_name
+} 
+
+resource "terratowns_home" "bar" {
+  name = "What spin around keeps spinning around"
+  description = <<DESCRIPTION
+Welcome to our spin dics bar. Hope that you won't faint out <3
+DESCRIPTION
+  domain_name = module.spin_disc_bar.domain_name
+  town = "melomaniac-mansion"
+  content_version = var.spindisc_bar.content_version
 }
