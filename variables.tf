@@ -10,8 +10,7 @@ variable "teacherseat_user_uuid" {
  type = string
 }
 
-#\\TODO - your own website
-variable "\\TODO" {
+variable "turnbased_rgp" {
   type = object({
     public_path = string
     content_version = number

@@ -20,4 +20,19 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-#\\TODO for your own website
+module "turnbased_rgp_home" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.turnbased_rgp.public_path
+  content_version = var.turnbased_rgp.content_version
+}
+
+resource "terratowns_home" "home" {
+  name = "Turn-based RPG Switch Home"
+  description = <<DESCRIPTION
+Welcome to our blog dedicated to turn-based RPG games on the Nintendo Switch! Here, we dive deep into the immersive world of strategic battles and captivating narratives that define this genre. Whether you’re a seasoned gamer or new to the RPG realm, our blog offers insights, reviews, and the latest news to enhance your gaming experience.
+DESCRIPTION
+  domain_name = module.turnbased_rgp_home.domain_name
+  town = "gamers-grotto"
+  content_version = var.turnbased_rgp.content_version
+}

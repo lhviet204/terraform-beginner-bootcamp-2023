@@ -24,9 +24,11 @@ Next :::
 check variable from outter folder ; output, and main.
 prepare the bucket and policy conf
 prepare the html for the website
+prepare the static host website folder.
+prepare mock server + bin to do the CURL for CRUD operation.
 
 Next02:
-prepare the static host website folder.
+prepare the remote state for terraform cloud.
+and create the bucket and website.
 
-Next03:
-prepare mock server + bin to do the CURL for CRUD operation.
+check the local variables again.

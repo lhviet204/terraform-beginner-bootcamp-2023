@@ -1,14 +1,14 @@
 output "bucket_name" {
   description = "Bucket name for our static website hosting"
-  value = module.\\TODO.bucket_name
+  value = module.turnbased_rgp_home.bucket_name
 }
 
 output "s3_website_endpoint" {
   description = "S3 Static Website hosting endpoint"
-  value = module.\\TODO.website_endpoint
+  value = module.turnbased_rgp_home.website_endpoint
 }
 
 output "cloudfront_url" {
   description = "The CloudFront Distribution Domain Name"
-  value = module.\\TODO.domain_name
+  value = module.turnbased_rgp_home.domain_name
 }
